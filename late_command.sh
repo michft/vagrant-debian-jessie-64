@@ -5,7 +5,8 @@ echo "%sudo   ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # public ssh key for vagrant user
 mkdir /home/vagrant/.ssh
-wget -O /home/vagrant/.ssh/authorized_keys "https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub"
+#wget -O /home/vagrant/.ssh/authorized_keys "https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub"
+touch /home/vagrant/.ssh/authorized_keys
 chmod 755 /home/vagrant/.ssh
 chmod 644 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant:vagrant /home/vagrant/.ssh
@@ -14,7 +15,13 @@ chown -R vagrant:vagrant /home/vagrant/.ssh
 echo "UseDNS no" >> /etc/ssh/sshd_config
 
 # Install chef from omnibus
-curl -L https://www.getchef.com/chef/install.sh | bash
+#curl -L https://www.getchef.com/chef/install.sh | bash
+
+# Install recent puppet.
+wget -O /var/cache/apt/puppetlabs-release-wheezy.deb https://apt.puppetlabs.com/puppetlabs-release-wheezy.deb
+dpkg -i /var/cache/apt/puppetlabs-release-wheezy.deb
+aptitude update
+aptitude -y reinstall puppet
 
 # display login promt after boot
 sed "s/quiet splash//" /etc/default/grub > /tmp/grub

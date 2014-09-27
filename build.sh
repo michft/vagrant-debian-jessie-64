@@ -22,9 +22,9 @@ set -o errexit
 #set -o xtrace
 
 # Configurations
-BOX="debian-wheezy-64"
-ISO_URL="http://cdimage.debian.org/debian-cd/7.6.0/amd64/iso-cd/debian-7.6.0-amd64-netinst.iso"
-ISO_MD5="8a3c2ad7fd7a9c4c7e9bcb5cae38c135"
+BOX="debian-jessie-64"
+ISO_URL="http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso"
+ISO_MD5="09a2c4d358fe8c8a34e20b030f7b5d72"
 
 # location, location, location
 FOLDER_BASE=$(pwd)
@@ -184,7 +184,7 @@ if ! VBoxManage showvminfo "${BOX}" >/dev/null 2>&1; then
     --basefolder "${FOLDER_VBOX}"
 
   VBoxManage modifyvm "${BOX}" \
-    --memory 360 \
+    --memory 4096 \
     --boot1 dvd \
     --boot2 disk \
     --boot3 none \
