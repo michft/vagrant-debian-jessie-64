@@ -1,10 +1,19 @@
+# Notes
+
+This script based on original dotzero [repo](https://github.com/dotzero/vagrant-debian-wheezy-64) which is in turn based on 
+Carl's [repo](https://github.com/cal/vagrant-ubuntu-precise-64) and with some tweaks to be compatible Debian8.
+
+## Important.
+
+You need to change the `ISO_MD5="09a2c4d358fe8c8a34e20b030f7b5d72"` line in ./build.sh by looking up the relevant value [Here](http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/MD5SUMS)
+
 ## About
 
 This script will:
 
- 1. download the `Debian 7.6 "Wheezy"` server, 64bit iso
+ 1. download the `Debian 8.0 beta "Jessie"` server, 64bit iso
  2. ... do some magic to turn it into a vagrant box file
- 3. output `debian-wheezy-64.box`
+ 3. output `debian-jessie-64.box`
 
 ## Requirements
 
@@ -69,8 +78,4 @@ The following variables are supported:
 * `VM_GUI` — if set to `yes` or `1`, disables headless mode for vm. May be useful for debugging installer;
 
 
-### Notes
 
-This script basted on original Carl's [repo](https://github.com/cal/vagrant-ubuntu-precise-64) and with some tweaks to be compatible Debian.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dotzero/vagrant-debian-wheezy-64/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
